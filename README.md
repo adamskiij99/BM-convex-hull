@@ -7,5 +7,5 @@ Fun fact: the boundary of the convex hull of a Brownian motion in the plane afte
 
 Running `ch2dbm_anim.py` will generate a similar plot to above but will also save the animation `conv.mp4` to the same folder as the file is run; this video will show the running process and convex hull, similar to below. It will take longer to run, due to each frame needing to be plotted and saved, so reserve around 10 minutes for the video to be produced. A prerequisite for this is FFmpeg, which is a video saving/conversion tool, and can be found [here](https://ffmpeg.org/download.html).
 
-https://user-images.githubusercontent.com/62266775/194537919-5abdfbfe-81dc-4955-a2c6-8a710ce73d2b.mp4
+https://user-images.githubusercontent.com/62266775/194716130-8c249ba0-9d30-4aff-84c9-8ca356073cae.mp4
 
