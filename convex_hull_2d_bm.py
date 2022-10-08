@@ -16,7 +16,7 @@ T = 5
 N = 50000
 dt = T / N
 sqrtdt = np.sqrt(dt)
-rho = 0     # Correltion parameter (NB: doesn't work for 1 or -1; degenerate hull)
+rho = 0     # Correlation parameter (NB: doesn't work for 1 or -1; degenerate hull)
 
 # Generate Brownian motion
 dW1 = np.random.normal(0, sqrtdt, N)
