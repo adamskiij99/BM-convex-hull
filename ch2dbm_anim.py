@@ -14,13 +14,14 @@ from scipy.spatial import ConvexHull
 
 # Params
 T = 2
-N = 10000
+N = 20000
 dt = T / N
 sqrtdt = np.sqrt(dt)
+rho = 0     # Correlation parameter (NB: doesn't work for 1 or -1; degenerate hull)
 
 # Generate Brownian motion
 dW1 = np.random.normal(0, sqrtdt, N)
-dW2 = np.random.normal(0, sqrtdt, N)
+dW2 = rho * dW1 + np.sqrt(1 - rho * rho) * np.random.normal(0, sqrtdt, N)
 W1 = dW1.cumsum()
 W2 = dW2.cumsum()
 W = np.array([W1, W2]).T
@@ -33,9 +34,6 @@ def animate(num):
     ax.clear()
     plt.xlim([W1m, W1M])
     plt.ylim([W2m, W2M])
-# =============================================================================
-#     ax.plot(W1[: num + 1], W2[: num + 1])
-# =============================================================================
     lc = LineCollection(segments[: num + 1])
     lc.set_array(np.linspace(0, 1, N))
     line = ax.add_collection(lc)
@@ -53,10 +51,8 @@ plt.style.use("bmh")
 fig, ax = plt.subplots(1, 1, figsize = (12, 12))#, dpi = 350)
 ax.set_aspect("equal")
 
-animation_1 = animation.FuncAnimation(fig, animate, interval = 3, frames = 10000)
+# Saving (requires ffmpeg unless saved as a `.gif`)
+animation_1 = animation.FuncAnimation(fig, animate, interval = 3, frames = 20000)
 animation_1.save("conv.mp4")
-
-# The BM has already been plotted, this final step is just for axis formatting
-#plt.plot(W1, W2, alpha = 0)
 plt.show()
 
