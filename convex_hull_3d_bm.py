@@ -33,6 +33,7 @@ Wpts = W.reshape(-1, 1, 3)
 segments = np.concatenate([Wpts[:-1], Wpts[1:]], axis = 1)
 
 # Formatting
+plt.style.use("bmh")
 fig = plt.figure(figsize = (12, 12), dpi = 350)
 ax = fig.add_subplot(111, projection = "3d")
 # ax.set_aspect("equal")
