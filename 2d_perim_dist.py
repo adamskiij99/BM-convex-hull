@@ -61,3 +61,4 @@ for pl in range(tSteps):
     axs[pl].hist(P[pl], bins = 100, density = True)
     axs[pl].hist(A[pl], bins = 100, density = True)
 plt.show()
+print("============== Red: Area ==============\n=========== Blue: Perimeter ===========")
