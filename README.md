@@ -1,5 +1,5 @@
 # Convex hull of planar and spacial Brownian motion
-Generates the convex hull of 2-dimensional Brownian motion with independent coordinates. Running `convex_hull_2d_bm.py` will generate a plot like the one below.
+Generates the convex hull of 2-dimensional Brownian motion. Running `convex_hull_2d_bm.py` will generate a plot like the one below.
 
 ![2dbm](https://user-images.githubusercontent.com/62266775/194130927-c427067e-c265-461d-952d-2e0f1feeee0b.png)
 
