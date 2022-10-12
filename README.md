@@ -30,7 +30,7 @@ Stepping up to higher dimensions, running `convex_hull_3d_bm.py` will generate a
 
 ![3dbm](https://user-images.githubusercontent.com/62266775/194771283-642db751-cf89-427a-a6b3-568891614528.png)
 
-And running `ch3dbm_anim.py` will generate something like the animation below, saving `conv3.pmp4`, also requiring FFmpeg. This, the way I've implemented it, seems to take much longer to produce.
+And running `ch3dbm_anim.py` will generate something like the animation below, saving `conv3.mp4`, also requiring FFmpeg. This, the way I've implemented it, seems to take much longer to produce.
 
 https://user-images.githubusercontent.com/62266775/195433863-64f32ed5-c25e-47a4-83f2-165e42a81429.mp4
 
