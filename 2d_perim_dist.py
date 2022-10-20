@@ -26,10 +26,9 @@ N = 5000
 dt = T / N
 sqrtdt = np.sqrt(dt)
 rho = 0     # Correlation parameter (NB: doesn't work for 1 or -1; degenerate hull)
-m = 10000   # For Monte Carlo
+m = 50000   # For Monte Carlo
 
 # Initialise
-tSteps = 10
 P = list()
 A = list()
 
@@ -40,14 +39,11 @@ for i in range(m):
     # Initialise perims and areas
     p = list()
     a = list()
-    S = np.linspace(0, N, tSteps + 1)
-    # For time t in {t, 2t, 3t, ..., T} where t = T / tSteps
-    for j in range(tSteps):
-        # Create convex hull of the BM until time jt
-        hull = ConvexHull(W[: int(S[j + 1])])
-        # then add its perimeter (hull.area) and area (hull.volume) to P, A
-        p += [hull.area]
-        a += [hull.volume]
+    # Create convex hull of the BM
+    hull = ConvexHull(W)
+    # then add its perimeter (hull.area) and area (hull.volume) to P, A
+    p += [hull.area]
+    a += [hull.volume]
     P += [p]
     A += [a]
 P = np.array(P).T
@@ -55,10 +51,11 @@ A = np.array(A).T
 
 # Plotting
 plt.style.use("bmh")
-fig, axs = plt.subplots(tSteps, 1, figsize = (10, 10), sharex = True)
-axs[0].set_title("Perim and area distns of conv hull of BM to time T=1")
-for pl in range(tSteps):
-    axs[pl].hist(P[pl], bins = 100, density = True)
-    axs[pl].hist(A[pl], bins = 100, density = True)
+fig, ax = plt.subplots(1, 1, figsize = (10, 6))
+ax.set_title("Perim and area distns of conv hull of BM to time T=1")
+ax.hist(P[0], bins = 100, density = True, label = "Perim")
+ax.hist(A[0], bins = 100, density = True, label = "Area")
+plt.legend()
 plt.show()
-print("============== Red: Area ==============\n=========== Blue: Perimeter ===========")
+
+
